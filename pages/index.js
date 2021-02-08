@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
+import {motion} from 'framer-motion';
 import {useRouter} from 'next/router';
+
 
 import db from '../db.json';
 import QuizContainer from '../src/components/QuizContainer';
@@ -30,7 +32,16 @@ export default function Home() {
       </Head>
       <QuizContainer>
         <QuizLogo />
-        <Widget>
+        <Widget
+          as={motion.section}
+          transition={{duration:0.5}}
+          variants={{
+            show: {opacity:1, y:'0'},
+            hidden: {opacity:0, y:'100%'}
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Header>
             <h1>Nome do Quiz!!</h1>
           </Widget.Header>
@@ -53,14 +64,6 @@ export default function Home() {
           </Widget.Content>
         </Widget>
 
-        <Widget>
-          <Widget.Header>
-            <h1>Quizes da galera</h1>
-          </Widget.Header>
-          <Widget.Content>
-            <p>lorem ipsum dolor sit amet</p>
-          </Widget.Content>
-        </Widget>
 
         <Footer />
       </QuizContainer>

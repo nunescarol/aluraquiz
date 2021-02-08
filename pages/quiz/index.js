@@ -1,11 +1,13 @@
 import React from "react";
-import db from "../db.json";
-import Widget from "../src/components/Widget";
-import QuizLogo from "../src/components/QuizLogo";
-import QuizBackground from "../src/components/QuizBackground";
-import QuizContainer from "../src/components/QuizContainer";
-import Button from "../src/components/Button";
-import AlternativesForm from "../src/components/AlternativesForm";
+import db from "../../db.json";
+import {motion} from 'framer-motion';
+import Widget from "../../src/components/Widget";
+import QuizLogo from "../../src/components/QuizLogo";
+import QuizBackground from "../../src/components/QuizBackground";
+import QuizContainer from "../../src/components/QuizContainer";
+import Button from "../../src/components/Button";
+import AlternativesForm from "../../src/components/AlternativesForm";
+import BackLinkArrow from "../../src/components/BackLinkArrow";
 
 function ResultWidget({ results }) {
   return (
@@ -42,7 +44,9 @@ function LoadingWidget() {
     <Widget>
       <Widget.Header>Carregando...</Widget.Header>
 
-      <Widget.Content>[Desafio do Loading]</Widget.Content>
+      <Widget.Content>
+        [Desafio do Loading]
+      </Widget.Content>
     </Widget>
   );
 }
@@ -65,7 +69,7 @@ function QuestionWidget({
   return (
     <Widget>
       <Widget.Header>
-        {/* <BackLinkArrow href="/" /> */}
+        <BackLinkArrow href="/" />
         <h3>{`Pergunta ${questionIndex + 1} de ${totalQuestions}`}</h3>
       </Widget.Header>
 
